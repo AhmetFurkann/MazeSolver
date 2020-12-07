@@ -21,9 +21,6 @@ import numpy as np
 
 from src import maze_solver
 
-os.chdir("C:\\Users\\Ahmet\\PycharmProjects\\maze_solving\\mazes_img")
-
-
 class KivyPIL(Image):
     def __init__(self, fps, **kwargs):
         super(KivyPIL, self).__init__(**kwargs)
