@@ -7,7 +7,7 @@ class MazeSolver():
     def __init__(self):
         self.row = None
         self.col = None
-        self.image = ImageToMaze("C:\\Users\\Ahmet\\PycharmProjects\\maze_solving\\mazes_img\\maze_1.jpg")
+        self.image = ImageToMaze("\images\maze_1.jpg")
         self.maze = self.image.get_maze_image()
         self.working_maze_image = self.image.get_working_maze_image()
         self.row, self.col = self.find_first_location()
