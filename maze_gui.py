@@ -38,13 +38,11 @@ class KivyPIL(Image):
         frame = self.maze_solver.implement_movement()
         frame = cv2.resize(frame, dsize=(int(Window.size[0] * 1.1), int(Window.size[1] * .7)),
                            interpolation=cv2.INTER_CUBIC)
-        # convert it to texture
         buf1 = cv2.flip(frame, 0)
         buf = buf1.tostring()
         image_texture = Texture.create(
             size=(frame.shape[1], frame.shape[0]), colorfmt='bgr')
         image_texture.blit_buffer(buf, colorfmt='bgr', bufferfmt='ubyte')
-        # display image from the texture
         self.texture = image_texture
 
     def change_fps_value(self, instance, value):
@@ -60,14 +58,6 @@ class BackgroundLayout(StackLayout):
 class ChildBackground(GridLayout):
     def __init__(self):
         super(ChildBackground, self).__init__()
-    #     with self.canvas:
-    #         self.color = Color(0, 1, 1, 0.5)
-    #         self.rect = Rectangle(pos=self.pos, size=self.size)
-    #     self.bind(pos=self.update_rectangle, size=self.update_rectangle)
-    #
-    # def update_rectangle(self, instance, value):
-    #     self.rect.pos = self.pos
-    #     self.rect.size = self.size
 
 
 class AnimationLabel(Label):
@@ -100,8 +90,6 @@ class MazeSolverApp(App):
         self.animation_part.size_hint_y = .7
         self.animation_part.cols = 1
         self.animation_part.rows = 2
-        # self.animation_part.canvas.add(Color(0, 1, 1, 0.5))
-        # self.animation_part.canvas.add(Rectangle(pos=self.animation_part.pos, size=self.animation_part.size))
 
         self.controller_panel = ChildBackground()
         self.controller_panel.size_hint_x = 1
@@ -141,11 +129,6 @@ class MazeSolverApp(App):
         self.background.add_widget(self.controller_panel)
 
         return self.background
-
-    # def on_stop(self):
-    #     #without this, app will not exit even if the window is closed
-    #     self.capture.release()
-
 
 if __name__ == '__main__':
     MazeSolverApp().run()
