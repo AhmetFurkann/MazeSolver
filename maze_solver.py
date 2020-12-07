@@ -119,7 +119,3 @@ class ImageToMaze:
         cropped = self.crop(reversed_working_image)
         orginal = working_image[::-1]
         return orginal
-
-
-maze_solver = MazeSolver()
-maze_solver.implement_movement()
